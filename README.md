@@ -101,10 +101,10 @@ The project is structured in a logical flow, mirroring the steps required for a 
 
 | File Name | Role (Project Week) | Description |
 | :--- | :--- | :--- |
-| `data_manager.py` | **Week 1: Data** | Fetches historical price data and transforms it into daily log returns. |
-| `metrics_calculator.py` | **Week 2: Metrics** | Calculates the **Covariance Matrix** and individual asset **Beta** values, which are inputs for the solver. |
-| `optimizer_engine.py` | **Week 3 & 4: Solver** | Defines the objective function (`portfolio_variance`) and constraints (`sum_weights`, `target_beta`), and executes the `scipy.optimize.minimize` function to find the optimal weights. |
-| `streamlit_app.py` | **Week 5: Visualization (Planned)** | *(Optional)* A web application to interactively run the optimizer and visualize the results. |
+| `data_manager.py` | **Stage 1: Data** | Fetches historical price data and transforms it into daily log returns. |
+| `metrics_calculator.py` | **Stage 2: Metrics** | Calculates the **Covariance Matrix** and individual asset **Beta** values, which are inputs for the solver. |
+| `optimizer_engine.py` | **Stages 3 & 4: Solver** | Defines the objective function (`portfolio_variance`) and constraints (`sum_weights`, `target_beta`), and executes the `scipy.optimize.minimize` function to find the optimal weights. |
+| `streamlit_app.py` | **Stage 5: Visualization (Planned)** | *(Optional)* A web application to interactively run the optimizer and visualize the results. |
 | `requirements.txt` | **Dependencies** | Lists all required Python packages. |
 
 -----
