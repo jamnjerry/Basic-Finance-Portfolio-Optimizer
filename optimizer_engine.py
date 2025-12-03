@@ -55,7 +55,7 @@ def find_optimal_weights(covariance_matrix, betas, target_beta):
                       bounds=bounds,
                       constraints=constraints)
     
-    weights = dict(zip(asset_tickers, [float(i) for i in result.x]))
+    weights = dict(zip(asset_tickers, [round(float(i), 2) for i in result.x]))
 
     if result.success:
         return weights
