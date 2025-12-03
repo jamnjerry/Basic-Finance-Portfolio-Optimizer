@@ -54,9 +54,11 @@ def find_optimal_weights(covariance_matrix, betas, target_beta):
                       method='SLSQP',
                       bounds=bounds,
                       constraints=constraints)
+    
+    weights = dict(zip(asset_tickers, [float(i) for i in result.x]))
 
     if result.success:
-        return result.x
+        return weights
     else:
         raise ValueError("Optimization failed: " + result.message)
     
@@ -65,4 +67,6 @@ if __name__ == "__main__":
     target_beta = 1.1
     
     optimal_weights = find_optimal_weights(cov_matrix, betas_series.values, target_beta)
-    print(optimal_weights, sum(optimal_weights))
+
+    result = f"Optimal Weights for Target Beta of {target_beta:.2f}:\n{optimal_weights}"
+    print(result)
