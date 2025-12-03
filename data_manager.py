@@ -2,6 +2,14 @@ import pandas as pd
 import yfinance as yf
 from datetime import datetime
 
+# 1. Define your inputs
+# Let's add a market index (S&P 500) right away
+asset_tickers = ['AAPL', 'MSFT', 'GOOG', 'JPM']
+market_index = '^GSPC' 
+all_tickers = asset_tickers + [market_index]
+    
+start_date = "2020-01-01"
+
 def fetch_price_data(tickers, start_date, end_date):
     """
     Fetches historical 'Adj Close' prices from Yahoo Finance
@@ -46,30 +54,22 @@ def calculate_daily_returns(prices_df):
     
     return daily_returns
 
-# --- This part lets you test the script directly ---
-if __name__ == "__main__":
-    
-    # 1. Define your inputs
-    # Let's add a market index (S&P 500) right away
-    asset_tickers = ['AAPL', 'MSFT', 'GOOG', 'JPM']
-    market_index = '^GSPC' 
-    all_tickers = asset_tickers + [market_index]
-    
-    start_date = "2020-01-01"
-    end_date = datetime.now().strftime('%Y-%m-%d') # Use today's date as end
 
-    # 2. Fetch prices
-    print("--- Fetching Prices ---")
-    prices = fetch_price_data(all_tickers, start_date, end_date)
     
-    if prices is not None:
-        print("\n--- Sample Prices (Last 5 days) ---")
-        print(prices.tail())
+end_date = datetime.now().strftime('%Y-%m-%d') # Use today's date as end
 
-        # 3. Calculate returns
-        print("\n--- Calculating Daily Returns ---")
-        returns = calculate_daily_returns(prices)
-        
-        if returns is not None:
-            print("\n--- Sample Returns (Last 5 days) ---")
-            print(returns.tail())
+# 1. Fetch prices
+print("--- Fetching Prices ---")
+prices = fetch_price_data(all_tickers, start_date, end_date)
+
+if prices is not None:
+    print("\n--- Sample Prices (Last 5 days) ---")
+    print(prices.tail())
+
+    # 2. Calculate returns
+    print("\n--- Calculating Daily Returns ---")
+    returns = calculate_daily_returns(prices)
+    
+    if returns is not None:
+        print("\n--- Sample Returns (Last 5 days) ---")
+        print(returns.tail())
