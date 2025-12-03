@@ -99,7 +99,7 @@ Final Portfolio Beta: 1.10(Matches Target!)
 
 The project is structured in a logical flow, mirroring the steps required for a sophisticated quantitative analysis.
 
-| File Name | Role (Project Week) | Description |
+| File Name | Role (Project Stage) | Description |
 | :--- | :--- | :--- |
 | `data_manager.py` | **Stage 1: Data** | Fetches historical price data and transforms it into daily log returns. |
 | `metrics_calculator.py` | **Stage 2: Metrics** | Calculates the **Covariance Matrix** and individual asset **Beta** values, which are inputs for the solver. |
