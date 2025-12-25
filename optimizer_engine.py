@@ -62,11 +62,5 @@ def find_optimal_weights(covariance_matrix, betas, target_beta):
     else:
         raise ValueError("Optimization failed: " + result.message)
     
-if __name__ == "__main__":
-    # Example usage
-    target_beta = 1.1
-    
-    optimal_weights = find_optimal_weights(cov_matrix, betas_series.values, target_beta)
 
-    result = f"Optimal Weights for Target Beta of {target_beta:.2f}:\n{optimal_weights}"
-    print(result)
+
